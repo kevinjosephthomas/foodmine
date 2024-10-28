@@ -1,0 +1,45 @@
+<div>
+    <h2>Manage Users</h2>
+  
+    <!-- Form to Add User -->
+    <form (ngSubmit)="addUser()">
+      <input type="text" [(ngModel)]="user.name" name="name" placeholder="Name" required />
+      <input type="email" [(ngModel)]="user.email" name="email" placeholder="Email" required />
+      <input type="password" [(ngModel)]="user.password" name="password" placeholder="Password" required />
+      <input type="text" [(ngModel)]="user.address" name="address" placeholder="Address" required />
+      <button type="submit">Add User</button>
+    </form>
+  
+    <!-- Display List of Users -->
+    <div *ngFor="let user of users" class="user-item">
+      <span>{{ user.name }} ({{ user.email }})</span>
+      <button (click)="deleteUser(user.id)">Delete</button>
+    </div>
+  
+    <h2>Manage Foods</h2>
+  
+    <!-- Form to Add Food -->
+    <form (ngSubmit)="addFood()">
+      <input type="text" [(ngModel)]="food.name" name="foodName" placeholder="Food Name" required />
+      <input type="number" [(ngModel)]="food.price" name="foodPrice" placeholder="Price" required />
+      <input type="text" [(ngModel)]="food.imageUrl" name="foodImageUrl" placeholder="Image URL" required />
+      <input type="text" [(ngModel)]="food.cookTime" name="foodCookTime" placeholder="Cook Time" required />
+      
+      <!-- Additional Fields from Food Model -->
+      <input type="text" [(ngModel)]="food.tags" name="foodTags" placeholder="Tags (comma-separated)" />
+      <input type="number" [(ngModel)]="food.stars" name="foodStars" placeholder="Stars (1-5)" required />
+      <input type="text" [(ngModel)]="food.origins" name="foodOrigins" placeholder="Origins (comma-separated)" />
+      <label>
+        <input type="checkbox" [(ngModel)]="food.favorite" name="foodFavorite" /> Favorite
+      </label>
+  
+      <button type="submit">Add Food</button>
+    </form>
+  
+    <!-- Display List of Foods -->
+    <div *ngFor="let food of foods" class="food-item">
+      <span>{{ food.name }} - ${{ food.price }} | Stars: {{ food.stars }}</span>
+      <button (click)="deleteFood(food.id)">Delete</button>
+    </div>
+  </div>
+  

@@ -1,0 +1,21 @@
+<!-- src/app/components/pages/orders/orders.component.html -->
+<div *ngIf="orders.length > 0; else noOrders">
+    <div *ngFor="let order of orders">
+      <h2>Order ID: {{ order.id }}</h2>
+      <p><strong>Name:</strong> {{ order.name }}</p>
+      <p><strong>Address:</strong> {{ order.address }}</p>
+      <p><strong>Status:</strong> {{ order.status }}</p>
+      <h3>Items:</h3>
+      <ul>
+        <li *ngFor="let item of order.items">
+          {{ item.food.name }} - ${{ item.price }} x {{ item.quantity }}
+        </li>
+      </ul>
+      <p><strong>Total Price:</strong> ${{ order.totalPrice }}</p>
+    </div>
+  </div>
+  
+  <ng-template #noOrders>
+    <p>No orders found.</p>
+  </ng-template>
+  

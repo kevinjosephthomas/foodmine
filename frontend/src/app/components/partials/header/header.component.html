@@ -1,4 +1,3 @@
-
 <header>
   <div class="container">
     <a routerLink="/" class="logo">Food Mine!</a>
@@ -7,17 +6,24 @@
         <li *ngIf="!isAuth">
           <a routerLink="/login">Login</a>
         </li>
+
         <li *ngIf="isAuth" class="menu-container">
-          <a routerLink="/dashboard">{{user.name}}</a>
+          <a routerLink="/dashboard">{{ user.name }}</a>
           <div class="menu">
             <a routerLink="/profile">Profile</a>
             <a routerLink="/orders">Orders</a>
             <a (click)="logout()">Logout</a>
           </div>
         </li>
+
+        <!-- Always visible Admin button, protected by AdminGuard -->
+        <li>
+          <a routerLink="/admin">Admin</a>
+        </li>
+
         <li>
           <a routerLink="/cart-page">
-            Cart <span *ngIf="cartQuantity">{{cartQuantity}}</span>
+            Cart <span *ngIf="cartQuantity">{{ cartQuantity }}</span>
           </a>
         </li>
       </ul>

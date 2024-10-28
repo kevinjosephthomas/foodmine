@@ -1,0 +1,26 @@
+<div class="profile-container">
+    <h2>User Profile</h2>
+  
+    <div *ngIf="user">
+      <p><strong>Name:</strong> {{ user.name }}</p>
+      <p><strong>Email:</strong> {{ user.email }}</p>
+      <p><strong>Address:</strong> {{ user.address }}</p>
+  
+      <form (ngSubmit)="updateProfile()">
+        <label>
+          Name:
+          <input type="text" [(ngModel)]="user.name" name="name" />
+        </label>
+        <label>
+          Email:
+          <input type="email" [(ngModel)]="user.email" name="email" />
+        </label>
+        <label>
+          Address:
+          <input type="text" [(ngModel)]="user.address" name="address" />
+        </label>
+        <button type="submit">Update Profile</button>
+      </form>
+    </div>
+  </div>
+  

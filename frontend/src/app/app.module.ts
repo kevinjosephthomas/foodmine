@@ -13,7 +13,6 @@ import { TitleComponent } from './components/partials/title/title.component';
 import { NotFoundComponent } from './components/partials/not-found/not-found.component';
 import { LoginPageComponent } from './components/pages/login-page/login-page.component';
 import { ReactiveFormsModule } from '@angular/forms';
-import { ToastrModule } from 'ngx-toastr';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import { InputContainerComponent } from './components/partials/input-container/input-container.component';
 import { InputValidationComponent } from './components/partials/input-validation/input-validation.component';
@@ -30,6 +29,13 @@ import { PaymentPageComponent } from './components/pages/payment-page/payment-pa
 import { PaypalButtonComponent } from './components/partials/paypal-button/paypal-button.component';
 import { OrderTrackPageComponent } from './components/pages/order-track-page/order-track-page.component';
 import { StarRatingComponent } from './components/partials/star-rating/star-rating.component';
+import { AdminComponent } from './admin/admin.component';
+import { ToastrModule } from 'ngx-toastr';
+import { FormsModule } from '@angular/forms';
+import { ProfileComponent } from './components/pages/profile/profile.component';
+import { OrdersComponent } from './components/pages/orders/orders.component';
+
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -54,14 +60,20 @@ import { StarRatingComponent } from './components/partials/star-rating/star-rati
     PaymentPageComponent,
     PaypalButtonComponent,
     OrderTrackPageComponent,
-    StarRatingComponent
+    StarRatingComponent,
+    AdminComponent,
+    ProfileComponent,
+    OrdersComponent,
+    
   ],
   imports: [
     BrowserModule,
     BrowserAnimationsModule,
     AppRoutingModule,
     HttpClientModule,
+    ToastrModule.forRoot(),
     ReactiveFormsModule,
+    FormsModule,
     ToastrModule.forRoot({
       timeOut:3000,
       positionClass:'toast-bottom-right',

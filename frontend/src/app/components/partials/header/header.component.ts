@@ -10,26 +10,38 @@ import { User } from 'src/app/shared/models/User';
 })
 export class HeaderComponent implements OnInit {
 
-  cartQuantity=0;
-  user!:User;
-  constructor(cartService:CartService,private userService:UserService) {
-    cartService.getCartObservable().subscribe((newCart) => {
+  cartQuantity = 0;
+  user!: User;
+
+  constructor(
+    private cartService: CartService,
+    private userService: UserService
+  ) {
+    // Subscribe to cart changes to update cart quantity
+    this.cartService.getCartObservable().subscribe((newCart) => {
       this.cartQuantity = newCart.totalCount;
-    })
+    });
 
-    userService.userObservable.subscribe((newUser) => {
+    // Subscribe to user changes to update user info and admin status
+    this.userService.userObservable.subscribe((newUser) => {
       this.user = newUser;
-    })
-   }
-
-  ngOnInit(): void {
+    });
   }
 
-  logout(){
+  ngOnInit(): void {}
+
+  // Log the user out and clear stored information
+  logout() {
     this.userService.logout();
   }
 
-  get isAuth(){
-    return this.user.token;
+  // Check if the user is authenticated by verifying if a token exists
+  get isAuth(): boolean {
+    return !!(this.user && this.user.token);
+  }
+
+  // Check if the user has admin privileges
+  get isAdmin(): boolean {
+    return !!(this.user && this.user.isAdmin); // Assuming `isAdmin` is a boolean in `User`
   }
 }

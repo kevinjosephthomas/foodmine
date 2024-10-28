@@ -21,14 +21,13 @@
     "@angular/router": "~16.0.1",
     "@types/leaflet": "^1.9.3",
     "@types/node": "^20.1.7",
+    "html2canvas": "^1.4.1",
+    "jspdf": "^2.5.2",
     "leaflet": "^1.9.3",
     "ngx-toastr": "^17.0.2",
     "rxjs": "~7.8.1",
     "tslib": "^2.5.0",
-    "zone.js": "~0.13.0",
-    "typescript": "~5.0.4"
-  },
-  "devDependencies": {
-
+    "typescript": "~5.0.4",
+    "zone.js": "~0.13.0"
   }
 }
