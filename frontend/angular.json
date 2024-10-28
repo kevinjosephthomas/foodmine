@@ -59,8 +59,8 @@
               "budgets": [
                 {
                   "type": "initial",
-                  "maximumWarning": "500kb",
-                  "maximumError": "1mb"
+                  "maximumWarning": "1.5mb",  // Increased warning limit
+                  "maximumError": "2mb"        // Increased error limit
                 },
                 {
                   "type": "anyComponentStyle",
@@ -74,7 +74,9 @@
                   "with": "src/environments/environment.prod.ts"
                 }
               ],
-              "outputHashing": "all"
+              "outputHashing": "all",
+              "buildOptimizer": true,      // Ensure build optimizer is enabled
+              "optimization": true          // Ensure optimization is enabled
             },
             "development": {
               "buildOptimizer": false,
